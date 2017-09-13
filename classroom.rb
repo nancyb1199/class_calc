@@ -93,10 +93,13 @@ end
 def top_students(grade_hash, number_of_students)
   students = []
   new_hash = averages(grade_hash)
+  # the .reverse sorts the grades from high to low
   new_hash = new_hash.sort_by{ |name, avg| avg}.reverse
   i = 0
   while (i < number_of_students)
+    # pull individual array out of the hash
     temp_array = new_hash[i]
+    # the students name is in position 0 in the temp array
     students << temp_array[0]
     i += 1
   end
