@@ -16,7 +16,6 @@ def assignment_scores(grade_hash, assignment_num)
   grade_hash.map do |name, grades|
     scores_array << grades[assignment_num-1]
   end
-  puts scores_array
     return scores_array
 end
 
@@ -24,6 +23,11 @@ end
 # assignment. Note that Ruby counts arrays from 0, but we are referring to
 # them as 1-10.
 def assignment_average_score(grade_hash, assignment_num)
+  score = 0
+  grade_hash.map do |name, grades|
+    score = score + grades[assignment_num-1]
+  end
+  score = score / grade_hash.length
 end
 
 # Return a hash of students and their average score.
