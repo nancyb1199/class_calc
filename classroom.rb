@@ -53,11 +53,30 @@ end
 # 60-69 => D
 # < 60 => F
 def letter_grade(score)
+  case score
+    when 0..59
+      return "F"
+    when 60..69
+      return "D"
+    when 70..79
+      return "C"
+    when 80..89
+      return "B"
+    else
+      return "A"
+  end
 end
 
 # Return a hash of students and their final letter grade, as determined
 # by their average.
 def final_letter_grades(grade_hash)
+  final_hash = {}
+  new_hash = averages(grade_hash)
+  new_hash.map do |name, average|
+    letter = letter_grade(average)
+    final_hash[name] = letter
+  end
+  return final_hash
 end
 
 # Return the average for the entire class.

@@ -34,23 +34,23 @@ class ClassroomTest < Minitest::Test
     assert_equal 80, assignment_average_score(DATA, 4)
     assert_equal 75, assignment_average_score(DATA, 8)
   end
+
+  def test_letter_grade
+    assert_equal "A", letter_grade(1000)
+    assert_equal "A", letter_grade(92)
+    assert_equal "B", letter_grade(84)
+    assert_equal "C", letter_grade(70)
+    assert_equal "D", letter_grade(69)
+    assert_equal "F", letter_grade(2)
+  end
+
+  def test_final_letter_grades
+    assert_equal "A", final_letter_grades(DATA)[:remy]
+    assert_equal "B", final_letter_grades(DATA)[:kelly]
+    assert_equal "B", final_letter_grades(DATA)[:indiana]
+    assert_equal "F", final_letter_grades(DATA)[:chase]
+  end
   
-  # def test_letter_grade
-  #   assert_equal "A", letter_grade(1000)
-  #   assert_equal "A", letter_grade(92)
-  #   assert_equal "B", letter_grade(84)
-  #   assert_equal "C", letter_grade(70)
-  #   assert_equal "D", letter_grade(69)
-  #   assert_equal "F", letter_grade(2)
-  # end
-  #
-  # def test_final_letter_grades
-  #   assert_equal "A", final_letter_grades(DATA)[:remy]
-  #   assert_equal "B", final_letter_grades(DATA)[:kelly]
-  #   assert_equal "B", final_letter_grades(DATA)[:indiana]
-  #   assert_equal "F", final_letter_grades(DATA)[:chase]
-  # end
-  #
   # def test_class_average
   #   assert_equal 74, class_average(DATA)
   # end
