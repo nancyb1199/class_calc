@@ -81,8 +81,24 @@ end
 
 # Return the average for the entire class.
 def class_average(grade_hash)
+  score = 0
+  new_hash = averages(grade_hash)
+  new_hash.map do |name, average|
+    score = score + average
+  end
+  score = score / new_hash.length
 end
 
 # Return an array of the top `number_of_students` students.
 def top_students(grade_hash, number_of_students)
+  students = []
+  new_hash = averages(grade_hash)
+  new_hash = new_hash.sort_by{ |name, avg| avg}.reverse
+  i = 0
+  while (i < number_of_students)
+    temp_array = new_hash[i]
+    students << temp_array[0]
+    i += 1
+  end
+  return students
 end
